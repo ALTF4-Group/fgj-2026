@@ -10,6 +10,48 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check for Deadlock Updates
+        run: |
+          echo "Checking for critical Deadlock updates before proceeding with build..."
+
+          # Fetch Deadlock news from Steam API
+          NEWS=$(curl -s "https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=1422450&count=10&format=json")
+
+          # Find the newest steam_community_announcements item
+          LATEST=$(echo "$NEWS" | jq -r '
+            .appnews.newsitems
+            | map(select(.feedname == "steam_community_announcements"))
+            | sort_by(.date)
+            | reverse
+            | .[0]
+          ')
+
+          TITLE=$(echo "$LATEST" | jq -r '.title')
+          DATE=$(echo "$LATEST" | jq -r '.date')
+          CONTENTS=$(echo "$LATEST" | jq -r '.contents')
+
+          # January 30, 2026 00:00:00 UTC = 1738195200
+          CUTOFF_DATE=1738195200
+
+          echo "----------------------------------------"
+          echo "Latest Deadlock Patch: $TITLE"
+          echo "Date: $(date -d @$DATE 2>/dev/null || date -r $DATE 2>/dev/null || echo $DATE)"
+          echo "----------------------------------------"
+
+          if [ "$DATE" -ge "$CUTOFF_DATE" ]; then
+            echo ""
+            echo "NEW DEADLOCK UPDATE, GO PLAY!!1"
+            echo ""
+            echo "Patch Info:"
+            echo "$CONTENTS" | head -20
+            echo ""
+            echo "(but I guess we can still build the game...)"
+          else
+            echo ""
+            echo "no deadlock updates just sleepy eepy Rem, keep on jamming"
+            echo ""
+          fi
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
