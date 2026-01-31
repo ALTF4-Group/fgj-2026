@@ -2,16 +2,27 @@ extends Area2D
 
 var source: Object
 var direction: Vector2
-var speed: float
+var projectile_speed: int
+var bullet_damage: int
 
-func shoot(pos:Vector2, dir: Vector2, origin: Object):
+
+func create(pos:Vector2, dir: Vector2, speed: int, damage: int):
 	direction = dir
 	position = pos
-	source = origin
-	speed = source.speed
+	projectile_speed = speed
+	bullet_damage = damage
+
 
 func _physics_process(delta: float) -> void:
-	position += direction * speed * delta
+	position += direction * projectile_speed * delta
+
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemies"):
+		print("Hit!")
+		#body.health -= damage
+		#print(body.health)

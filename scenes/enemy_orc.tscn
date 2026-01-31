@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dgb7mgmp54ddb"]
+
+[ext_resource type="Script" uid="uid://dg3j5oh7fegej" path="res://scripts/enemy.gd" id="1_b40mg"]
+[ext_resource type="Texture2D" uid="uid://b36pgpjpy5qc" path="res://assets/Pixel Crawler - Free Pack 2.0.4/Pixel Crawler - Free Pack/Entities/Mobs/Orc Crew/Orc - Warrior/Run/Run-Sheet.png" id="2_b40mg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jwpi"]
+atlas = ExtResource("2_b40mg")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h514j"]
+atlas = ExtResource("2_b40mg")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd266"]
+atlas = ExtResource("2_b40mg")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oigoq"]
+atlas = ExtResource("2_b40mg")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol7oi"]
+atlas = ExtResource("2_b40mg")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je7cb"]
+atlas = ExtResource("2_b40mg")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dyt3y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jwpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h514j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd266")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oigoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ol7oi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je7cb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vyua"]
+size = Vector2(18, 31.75)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1688130805]
+script = ExtResource("1_b40mg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1878672219]
+position = Vector2(0, -33)
+sprite_frames = SubResource("SpriteFrames_dyt3y")
+autoplay = "default"
+frame_progress = 0.8290698
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1749825264]
+position = Vector2(-1, -17.125)
+shape = SubResource("RectangleShape2D_6vyua")
