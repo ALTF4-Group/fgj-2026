@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://cvakgviks1mxs" path="res://assets/Audio/Music/FGJ26Calm.wav" id="6_fjrip"]
 [ext_resource type="Script" uid="uid://c02mxs8b1u4qa" path="res://scripts/enemy_counter.gd" id="7_d2wvv"]
 [ext_resource type="Script" uid="uid://dkpntrl6h46hg" path="res://scripts/audio_handler.gd" id="7_fjrip"]
+[ext_resource type="Script" uid="uid://hls153mq2qsd" path="res://scripts/experience_handler.gd" id="10_y4r1p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
 atlas = ExtResource("2_qhqgy")
@@ -217,5 +218,17 @@ bus = &"Music - faded"
 stream = ExtResource("5_tuyoq")
 volume_db = -80.0
 bus = &"Music"
+
+[node name="ExperienceHandler" type="Node2D" parent="." unique_id=1817166434]
+script = ExtResource("10_y4r1p")
+
+[node name="ProgressBar" type="ProgressBar" parent="ExperienceHandler" unique_id=172418583]
+modulate = Color(0, 1, 0, 1)
+offset_left = -36.0
+offset_top = 21.0
+offset_right = 37.0
+offset_bottom = 29.0
+value = 50.0
+show_percentage = false
 
 [connection signal="timeout" from="Mob Timer" to="." method="_on_mob_timer_timeout"]
