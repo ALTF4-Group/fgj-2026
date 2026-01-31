@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 mouse_cursor/custom_image="uid://l0ncohbl6ysq"
 
+[global_group]
+
+enemies=""
+
 [input]
 
 left={

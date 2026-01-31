@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://btaff46o50gsj"]
+
+[ext_resource type="Texture2D" uid="uid://b07ukq2l57p2" path="res://assets/placeholder/Tiles/tile_0115.png" id="1_mh7tv"]
+[ext_resource type="Script" uid="uid://bxol2xso7yahp" path="res://scenes/items/stat_up/test_item.gd" id="1_r0ivm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r0ivm"]
+radius = 6.0827627
+
+[node name="HealthPotion" type="Area2D" unique_id=1775387432]
+script = ExtResource("1_r0ivm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1255844261]
+shape = SubResource("CircleShape2D_r0ivm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=591526585]
+texture = ExtResource("1_mh7tv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
