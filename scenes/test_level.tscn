@@ -1,9 +1,9 @@
-[gd_scene format=4 uid="uid://c6uktcocbklvh"]
+[gd_scene format=4 uid="uid://bja54tkjqkuir"]
 
-[ext_resource type="Script" uid="uid://bja54tkjqkuir" path="res://test_level.gd" id="1_4ptq8"]
+[ext_resource type="Script" uid="uid://bja54tkjqkuir" path="res://scripts/test_level.gd" id="1_4ptq8"]
 [ext_resource type="Texture2D" uid="uid://dbmv81x6g4h0r" path="res://assets/placeholder/Tilemap/tilemap.png" id="1_gojnm"]
-[ext_resource type="PackedScene" uid="uid://vx4jcs83a5hl" path="res://enemy.tscn" id="4_4ptq8"]
-[ext_resource type="PackedScene" uid="uid://cnridc4g5ml6u" path="res://player.tscn" id="5_sb12i"]
+[ext_resource type="PackedScene" uid="uid://vx4jcs83a5hl" path="res://scenes/enemy.tscn" id="4_4ptq8"]
+[ext_resource type="PackedScene" uid="uid://cnridc4g5ml6u" path="res://scenes/player.tscn" id="5_sb12i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1c2mv"]
 resource_name = "Test"
