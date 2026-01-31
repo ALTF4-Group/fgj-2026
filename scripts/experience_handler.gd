@@ -19,6 +19,7 @@ func _update_bar_on_level_up() -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_update_bar_on_level_up()
+	GlobalEvents.enemy_died.connect(gain_xp)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

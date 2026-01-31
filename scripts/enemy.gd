@@ -7,7 +7,7 @@ extends CharacterBody2D
 var speed = 500
 
 func _ready() -> void:
-	Global.enemy_counter += 1
+	GlobalEvents.enemy_spawned.emit()
 	pass
 
 func _physics_process(delta) -> void:
@@ -18,6 +18,5 @@ func _physics_process(delta) -> void:
 func take_damage(damage: int):
 	health -= damage
 	if health <= 0:
-		Global.player.on_kill(experience)
-		Global.enemy_counter -= 1
+		GlobalEvents.enemy_died.emit(experience)
 		queue_free()

@@ -26,10 +26,17 @@ func _ready() -> void:
 		ActiveMusicTrack.AGGRO: $AggroMusic,
 		ActiveMusicTrack.CALM: $CalmMusic
 	}
+	GlobalEvents.heat_changed.connect(set_intensity)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func set_intensity(is_high_heat: bool) -> void:
+	if is_high_heat:
+		set_aggro()
+	else:
+		set_base()
 
 func set_calm() -> void:
 	_set_active_track(ActiveMusicTrack.CALM)
