@@ -142,13 +142,10 @@ size = Vector2(20, 30.5)
 script = ExtResource("1_i3pqv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=332943137]
-position = Vector2(1, -15)
-scale = Vector2(0.8671875, 0.83593744)
 sprite_frames = SubResource("SpriteFrames_hqtel")
 animation = &"Mask"
 autoplay = "Mask"
-frame_progress = 0.9076509
+frame_progress = 0.797512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=831777840]
-position = Vector2(1, -15)
 shape = SubResource("RectangleShape2D_oprun")
