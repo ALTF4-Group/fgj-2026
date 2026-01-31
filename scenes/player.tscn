@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://qtuvolwb21d4"]
+[gd_scene format=3 uid="uid://6l20wkvo71er"]
 
 [ext_resource type="Script" uid="uid://xly4dr8emeds" path="res://scripts/player.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://btpmigtjuf4tn" path="res://assets/placeholder/Tiles/tile_0097.png" id="1_onrkg"]
+[ext_resource type="PackedScene" uid="uid://vx4jcs83a5hl" path="res://scenes/enemy.tscn" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://cbrubbtk5ih2w" path="res://assets/placeholder/Tiles/tile_0096.png" id="2_i3pqv"]
+[ext_resource type="Script" uid="uid://n0rb2l5bhqs0" path="res://scripts/mob_timer.gd" id="5_qlg0r"]
+[ext_resource type="Script" uid="uid://chfbj3go5m5hq" path="res://scenes/enemy_counter.gd" id="6_tuyoq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
 animations = [{
@@ -21,8 +24,27 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_sweqy"]
 radius = 6.0827627
 
+[sub_resource type="Curve2D" id="Curve2D_qlg0r"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 168, 96, 0, 0, 0, 0, -168, 96, 0, 0, 0, 0, -168, -96, 0, 0, 0, 0, 168, -96, 0, 0, 0, 0, 168, 96)
+}
+point_count = 5
+
+[sub_resource type="GDScript" id="GDScript_qlg0r"]
+script/source = "extends Path2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [node name="Player" type="CharacterBody2D" unique_id=347930696]
 script = ExtResource("1_i3pqv")
+mob_scene = ExtResource("2_dqkch")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=332943137]
 position = Vector2(0, -2)
@@ -33,3 +55,29 @@ frame_progress = 0.783805
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=831777840]
 shape = SubResource("CircleShape2D_sweqy")
+
+[node name="MobSpawner" type="Path2D" parent="." unique_id=1412838072]
+modulate = Color(1, 0, 1, 1)
+curve = SubResource("Curve2D_qlg0r")
+script = SubResource("GDScript_qlg0r")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobSpawner" unique_id=605568663]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(168, 96)
+rotation = 3.1415927
+
+[node name="MobTimer" type="Timer" parent="." unique_id=1224590428]
+wait_time = 0.5
+script = ExtResource("5_qlg0r")
+
+[node name="Counter" type="StaticBody2D" parent="." unique_id=1968742824]
+
+[node name="Enemy Counter" type="RichTextLabel" parent="Counter" unique_id=88709994]
+offset_left = -152.0
+offset_top = -88.0
+offset_right = -32.0
+offset_bottom = -64.0
+text = "Enemies: 9999"
+script = ExtResource("6_tuyoq")
+
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
