@@ -20,18 +20,23 @@ var weapon_select = 0
 
 func _ready() -> void:
 	Global.player = self
+	var timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = 2.0
+	timer.start()
+	timer.timeout.connect(_on_timer_timeout)
+	
 
 func _physics_process(delta: float) -> void:
 	
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed * delta
+	
 	move_and_slide()
 	
-	var timer = Timer.new()
-	
-	if Input.is_action_just_pressed("ui_select"):
-		var second_weapon = weapons["boomerang"].instantiate()
-		add_sibling(second_weapon)
+func _on_timer_timeout() -> void:
+	var second_weapon = weapons["boomerang"].instantiate()
+	add_sibling(second_weapon)
 
 func look():
 	look_at(get_global_mouse_position())

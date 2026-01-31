@@ -43,7 +43,6 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_tree_entered() -> void:
 	position = Global.player.global_position
 	state = State.THROW
-	var throw_direction = Global.player.direction
-	if throw_direction == Vector2.ZERO:
-		throw_direction = Global.player.cardinal_direction
+	var throw_direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
+	print(throw_direction)
 	throw(throw_direction)
