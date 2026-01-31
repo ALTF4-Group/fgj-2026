@@ -7,8 +7,16 @@ extends CharacterBody2D
 @export var attack_speed = 1
 @export var attack_damage = 1
 @export var attack_range = 1
-@export var weapons = []
+@export var weapons = { 
+	"cleave" : preload("res://scenes/items/weapons/Cleave.tscn")
+	}	
+var starting_weapon = weapons["cleave"].instantiate()
+var weapon_enabled = true
 
+func _ready() -> void:
+	Global.player = self
+	add_child(starting_weapon)
+	
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -23,6 +31,14 @@ func _physics_process(delta: float) -> void:
 		velocity.y = up_down * speed * speed_mult
 	else:
 		velocity.y = move_toward(velocity.y, 0, speed)
+		
+	if Input.is_action_just_pressed("ui_select"):
+		if weapon_enabled == true:
+			weapon_enabled = false
+			remove_child(starting_weapon)
+		elif  weapon_enabled == false:
+			weapon_enabled = true
+			add_child(starting_weapon)
 	
 	move_and_slide()
 	
