@@ -7,15 +7,19 @@ extends CharacterBody2D
 @export var attack_speed = 1
 @export var attack_damage = 1
 @export var attack_range = 1
+var cardinal_direction : Vector2 = Vector2.DOWN
+var direction : Vector2 = Vector2.ZERO
 @export var weapons = { 
-	"cleave" : preload("res://scenes/items/weapons/Cleave.tscn")
+	"cleave" : preload("res://scenes/items/weapons/cleave.tscn"),
+	"boomerang" : preload("res://scenes/items/weapons/boomerang.tscn")
 	}
-var starting_weapon = weapons["cleave"].instantiate()
-var weapon_enabled = true
+
+var current_weapon = weapons["cleave"].instantiate()
+
+var weapon_select = 0
 
 func _ready() -> void:
 	Global.player = self
-	add_child(starting_weapon)
 
 func _physics_process(delta: float) -> void:
 	
@@ -23,10 +27,11 @@ func _physics_process(delta: float) -> void:
 	velocity = input_direction * speed * delta
 	move_and_slide()
 	
+	var timer = Timer.new()
+	
 	if Input.is_action_just_pressed("ui_select"):
-		remove_child(starting_weapon) if weapon_enabled == true else add_child(starting_weapon)
-		weapon_enabled = !weapon_enabled
-
+		var second_weapon = weapons["boomerang"].instantiate()
+		add_sibling(second_weapon)
 
 func look():
 	look_at(get_global_mouse_position())
