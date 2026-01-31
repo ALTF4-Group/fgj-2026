@@ -22,7 +22,7 @@ func _ready() -> void:
 	Global.player = self
 	var timer = Timer.new()
 	add_child(timer)
-	timer.wait_time = 2.0
+	timer.wait_time = 1.0
 	timer.start()
 	timer.timeout.connect(_on_timer_timeout)
 	
