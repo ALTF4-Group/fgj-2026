@@ -8,9 +8,10 @@ extends CharacterBody2D
 @export var attack_damage = 1
 @export var attack_range = 1
 @export var weapons = { 
-	"cleave" : preload("res://scenes/items/weapons/Cleave.tscn")
+	"cleave" : preload("res://scenes/items/weapons/Cleave.tscn"),
+	"crossbow" : preload("res://scenes/items/weapons/Cross_cross_bow.tscn")
 	}
-var starting_weapon = weapons["cleave"].instantiate()
+var starting_weapon = weapons["crossbow"].instantiate()
 var weapon_enabled = true
 
 func _ready() -> void:
