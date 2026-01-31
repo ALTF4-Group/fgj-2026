@@ -145,7 +145,7 @@ script = ExtResource("1_i3pqv")
 sprite_frames = SubResource("SpriteFrames_hqtel")
 animation = &"death"
 autoplay = "Mask"
-frame_progress = 0.4507431
+frame_progress = 0.60116506
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=831777840]
 shape = SubResource("RectangleShape2D_oprun")

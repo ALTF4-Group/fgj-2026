@@ -18,8 +18,13 @@ func _ready() -> void:
 	add_child(starting_weapon)
 	
 func update_animation():
+	#Flip the sprite when changing direction
+	if velocity.x != 0:
+		$AnimatedSprite2D.flip_h = velocity.x < 0
+	#Play "move" animation when moving
 	if velocity.length() > 0:
 		$AnimatedSprite2D.play("move")
+	#Play idle animation when standing still
 	else:
 		$AnimatedSprite2D.play("Mask")
 
