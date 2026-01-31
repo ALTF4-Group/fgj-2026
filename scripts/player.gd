@@ -17,6 +17,8 @@ var weapon_enabled = true
 	"boomerang" : preload("res://scenes/items/weapons/boomerang.tscn"),
   "crossbow" : preload("res://scenes/items/weapons/Cross_cross_bow.tscn")
 	}
+var starting_weapon = weapons["cleave"].instantiate()
+var weapon_enabled = true
 
 func _ready() -> void:
 	Global.player = self
