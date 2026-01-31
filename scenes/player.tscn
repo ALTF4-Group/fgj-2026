@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://do8bhd4ui5vhk" path="res://assets/Pixel Crawler - Free Pack 2.0.4/Pixel Crawler - Free Pack/Entities/Npc's/Rogue/Death/Death-Sheet.png" id="3_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://b1nkmw0gyw7h4" path="res://assets/Audio/Music/FGJ26Base.wav" id="4_dqkch"]
 [ext_resource type="Script" uid="uid://bm583walnlq6v" path="res://scenes/canvas_layer.gd" id="5_qlg0r"]
-[ext_resource type="Script" uid="uid://c02mxs8b1u4qa" path="res://scripts/enemy_counter.gd" id="7_fjrip"]
 [ext_resource type="AudioStream" uid="uid://clnefh4kgkpti" path="res://assets/Audio/Music/FGJ26Aggro.wav" id="5_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://cvakgviks1mxs" path="res://assets/Audio/Music/FGJ26Calm.wav" id="6_fjrip"]
+[ext_resource type="Script" uid="uid://c02mxs8b1u4qa" path="res://scripts/enemy_counter.gd" id="7_d2wvv"]
 [ext_resource type="Script" uid="uid://dkpntrl6h46hg" path="res://scripts/audio_handler.gd" id="7_fjrip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
@@ -199,9 +199,8 @@ offset_top = -88.0
 offset_right = -16.0
 offset_bottom = -64.0
 text = "Enemies : 999999"
-script = ExtResource("7_fjrip")
+script = ExtResource("7_d2wvv")
 
-[connection signal="timeout" from="Mob Timer" to="." method="_on_mob_timer_timeout"]
 [node name="AudioHandler" type="Node2D" parent="." unique_id=1790787452]
 script = ExtResource("7_fjrip")
 
@@ -218,3 +217,5 @@ bus = &"Music - faded"
 stream = ExtResource("5_tuyoq")
 volume_db = -80.0
 bus = &"Music"
+
+[connection signal="timeout" from="Mob Timer" to="." method="_on_mob_timer_timeout"]
