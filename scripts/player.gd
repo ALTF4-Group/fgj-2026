@@ -10,6 +10,8 @@ extends CharacterBody2D
 @export var mob_scene: PackedScene
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
+var starting_weapon = weapons["cleave"].instantiate()
+var weapon_enabled = true
 @export var weapons = { 
 	"cleave" : preload("res://scenes/items/weapons/cleave.tscn"),
 	"boomerang" : preload("res://scenes/items/weapons/boomerang.tscn"),
