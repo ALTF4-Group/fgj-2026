@@ -6,14 +6,16 @@ extends CharacterBody2D
 var speed = 500
 
 func _ready() -> void:
+	Global.enemy_counter += 1
 	pass
 
 func _physics_process(delta) -> void:
-	var direction = (player.position - position).normalized()
+	var direction = (Global.player.position - position).normalized()
 	velocity = direction * speed * delta
 	move_and_slide()
 
 func take_damage(damage: int):
 	health -= damage
 	if health <= 0:
+		Global.enemy_counter -= 1
 		queue_free()

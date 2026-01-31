@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var attack_speed = 1
 @export var attack_damage = 1
 @export var attack_range = 1
+@export var mob_scene: PackedScene
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
 @export var weapons = { 
@@ -20,6 +21,7 @@ var weapon_enabled = true
 func _ready() -> void:
 	Global.player = self
 	add_child(starting_weapon)
+	$"Mob Timer".start()
 	var timer = Timer.new()
 	add_child(timer)
 	timer.wait_time = 1.0
@@ -37,7 +39,6 @@ func update_animation():
 	else:
 		$AnimatedSprite2D.play("Mask")
 
-
 func _physics_process(delta: float) -> void:
 	
 	var input_direction = Input.get_vector("left", "right", "up", "down")
@@ -50,7 +51,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_select"):
 		remove_child(starting_weapon) if weapon_enabled == true else add_child(starting_weapon)
 		weapon_enabled = !weapon_enabled
-
+	
 func _on_timer_timeout() -> void:
 	var second_weapon = weapons["boomerang"].instantiate()
 	add_sibling(second_weapon)
@@ -77,3 +78,18 @@ func die():
 func on_timer_death_time_out():
 	print("You died!")
 	get_tree().quit()
+
+
+func _on_mob_timer_timeout() -> void:
+	# Create a new instance of the Mob scene.
+	var mob = mob_scene.instantiate()
+
+	# Choose a random location on Path2D.
+	var mob_spawn_location = $MobSpawner/MobSpawnPoint
+	mob_spawn_location.progress_ratio = randf()
+	
+	# Set the mob's position to the random location.
+	mob.position = mob_spawn_location.position + position
+
+	# Spawn the mob by adding it to the Main scene.
+	add_sibling(mob)
