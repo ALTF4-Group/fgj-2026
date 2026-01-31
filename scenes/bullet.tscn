@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://ce2afd783ut2q"]
 
-[ext_resource type="Script" uid="uid://bge48tmkbhp1s" path="res://bullet.gd" id="1_mkf8s"]
-[ext_resource type="Texture2D" uid="uid://c61ams3r3c3qp" path="res://icon.svg" id="2_y25gk"]
+[ext_resource type="Script" uid="uid://bge48tmkbhp1s" path="res://scripts/bullet.gd" id="1_mkf8s"]
+[ext_resource type="Texture2D" uid="uid://c61ams3r3c3qp" path="res://assets/icon.svg" id="2_y25gk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkf8s"]
 
 [node name="Bullet" type="Area2D" unique_id=1932416100]
-light_mask = 2
-visibility_layer = 5
+light_mask = 16
+visibility_layer = 12
 script = ExtResource("1_mkf8s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1559165986]
