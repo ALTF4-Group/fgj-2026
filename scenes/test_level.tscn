@@ -205,7 +205,3 @@ position = Vector2(-25, 26)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1986913954]
 zoom = Vector2(4, 4)
-
-[node name="Label" type="Label" parent="Player/Camera2D" unique_id=1060879541]
-offset_right = 40.0
-offset_bottom = 23.0
