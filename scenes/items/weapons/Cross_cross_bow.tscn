@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c53b18kk64upo"]
+
+[ext_resource type="Script" uid="uid://cg8klid63mvmm" path="res://scenes/items/weapons/cross_cross_bow.gd" id="1_t7r0y"]
+
+[node name="CrossCrossBow" type="Node2D" unique_id=692337961]
+script = ExtResource("1_t7r0y")
+
+[node name="Timer" type="Timer" parent="." unique_id=1123651044]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
