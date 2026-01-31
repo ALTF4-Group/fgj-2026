@@ -22,7 +22,6 @@ func _ready() -> void:
 	Global.player = self
 	add_child(starting_weapon)
 	$"Mob Timer".start()
-	print($"Mob Timer")
 	var timer = Timer.new()
 	add_child(timer)
 	timer.wait_time = 1.0
@@ -82,7 +81,6 @@ func on_timer_death_time_out():
 
 
 func _on_mob_timer_timeout() -> void:
-	print("enemy")
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instantiate()
 
