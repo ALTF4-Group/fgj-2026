@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @export var player = Node2D
+@export var hp = 1
+@export var damage = 1
 var speed = 100
 
 func _ready() -> void:
