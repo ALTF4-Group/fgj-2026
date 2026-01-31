@@ -1,42 +1,176 @@
 [gd_scene format=3 uid="uid://qtuvolwb21d4"]
 
 [ext_resource type="Script" uid="uid://xly4dr8emeds" path="res://scripts/player.gd" id="1_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://btpmigtjuf4tn" path="res://assets/placeholder/Tiles/tile_0097.png" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://cbrubbtk5ih2w" path="res://assets/placeholder/Tiles/tile_0096.png" id="2_i3pqv"]
 [ext_resource type="AudioStream" uid="uid://b1nkmw0gyw7h4" path="res://assets/Audio/Music/FGJ26Base.wav" id="4_dqkch"]
 [ext_resource type="AudioStream" uid="uid://clnefh4kgkpti" path="res://assets/Audio/Music/FGJ26Aggro.wav" id="5_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://cvakgviks1mxs" path="res://assets/Audio/Music/FGJ26Calm.wav" id="6_fjrip"]
 [ext_resource type="Script" uid="uid://dkpntrl6h46hg" path="res://scripts/audio_handler.gd" id="7_fjrip"]
+[ext_resource type="Texture2D" uid="uid://bdt5iw4rjo6h" path="res://assets/Pixel Crawler - Free Pack 2.0.4/Pixel Crawler - Free Pack/Entities/Npc's/Rogue/Idle/Idle-Sheet.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://dkwa1nqc3eo7g" path="res://assets/Pixel Crawler - Free Pack 2.0.4/Pixel Crawler - Free Pack/Entities/Npc's/Rogue/Run/Run-Sheet.png" id="3_dqkch"]
+[ext_resource type="Texture2D" uid="uid://do8bhd4ui5vhk" path="res://assets/Pixel Crawler - Free Pack 2.0.4/Pixel Crawler - Free Pack/Entities/Npc's/Rogue/Death/Death-Sheet.png" id="3_qlg0r"]
+[ext_resource type="Script" uid="uid://bm583walnlq6v" path="res://scenes/canvas_layer.gd" id="5_qlg0r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
+atlas = ExtResource("3_qlg0r")
+region = Rect2(320, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
+atlas = ExtResource("3_qlg0r")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
+atlas = ExtResource("3_qlg0r")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
+atlas = ExtResource("3_qlg0r")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfm1y"]
+atlas = ExtResource("3_qlg0r")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
+atlas = ExtResource("3_qlg0r")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("3_dqkch")
+region = Rect2(320, 27, 64, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("3_dqkch")
+region = Rect2(256, 27, 64, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("3_dqkch")
+region = Rect2(192, 27, 64, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("3_dqkch")
+region = Rect2(128, 27, 64, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("3_dqkch")
+region = Rect2(64, 27, 64, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
+atlas = ExtResource("3_dqkch")
+region = Rect2(0, 27, 64, 37)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_onrkg")
+"texture": SubResource("AtlasTexture_qlg0r")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_i3pqv")
+"texture": SubResource("AtlasTexture_tuyoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smehm")
 }],
 "loop": true,
 "name": &"Mask",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jej6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ej7")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_oprun")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_a8ls1")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_qfm1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fulsm")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqkch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4r1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v2ag")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sweqy"]
-radius = 6.0827627
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oprun"]
+size = Vector2(20, 30.5)
 
 [node name="Player" type="CharacterBody2D" unique_id=347930696]
 script = ExtResource("1_i3pqv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=332943137]
-position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_hqtel")
-animation = &"Mask"
+animation = &"death"
 autoplay = "Mask"
-frame_progress = 0.783805
+frame_progress = 0.05234666
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=831777840]
-shape = SubResource("CircleShape2D_sweqy")
+shape = SubResource("RectangleShape2D_oprun")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=87703226]
+follow_viewport_enabled = true
+script = ExtResource("5_qlg0r")
+
+[node name="FadeRect" type="ColorRect" parent="CanvasLayer" unique_id=1532610151]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -133.0
+offset_top = -125.0
+offset_right = -133.0
+offset_bottom = -125.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="BaseMusic" type="AudioStreamPlayer" parent="." unique_id=2145571517]
 stream = ExtResource("4_dqkch")
