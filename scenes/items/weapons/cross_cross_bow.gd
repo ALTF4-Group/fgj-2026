@@ -1,9 +1,9 @@
 extends Node2D
 
 var crossbow_scene: PackedScene = preload("res://scenes/items/weapons/crossbow.tscn")
-@export var shoot_interval := 2
+@export var shoot_interval := 1
 @export var rotation_speed := 1.0
-@export var number_of_bows = 11
+@export var number_of_bows = 4
 var list_of_bows = []
 
 func _ready() -> void:
