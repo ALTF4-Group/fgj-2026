@@ -55,6 +55,8 @@ func die():
 		speed_mult=0
 		$AnimatedSprite2D.play("death")
 		weapon_enabled=false
+		get_node("/Player/CanvasLayer/FadeRect").fade_to_black(1.5)
+		set_physics_process(false)
 		
 
 func on_timer_death_time_out():
