@@ -15,6 +15,10 @@ run/main_scene="uid://jhafmm0w02if"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+mouse_cursor/custom_image="uid://l0ncohbl6ysq"
+
 [input]
 
 left={
@@ -57,4 +61,5 @@ quit={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
