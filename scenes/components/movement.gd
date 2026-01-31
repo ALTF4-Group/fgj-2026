@@ -21,9 +21,9 @@ static func from_args(max_speed:float, acceleration:float, friction: float) -> M
 	return movement
 
 func _update_direction(target_direction: Vector2, delta:float):
-	#var new_direction = target_direction 
+	var new_direction = target_direction 
 	# This would add some weight
-	self.current_vector.lerp(target_direction)
+	# self.current_vector.lerp(target_direction)
 	return new_direction.normalized();
 
 func _update_speed(delta:float) -> float:
