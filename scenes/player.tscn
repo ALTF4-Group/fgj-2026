@@ -4,7 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://bdt5iw4rjo6h" path="res://assets/Pixel Crawler - Free Pack 2.0.4/Pixel Crawler - Free Pack/Entities/Npc's/Rogue/Idle/Idle-Sheet.png" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://dkwa1nqc3eo7g" path="res://assets/Pixel Crawler - Free Pack 2.0.4/Pixel Crawler - Free Pack/Entities/Npc's/Rogue/Run/Run-Sheet.png" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://do8bhd4ui5vhk" path="res://assets/Pixel Crawler - Free Pack 2.0.4/Pixel Crawler - Free Pack/Entities/Npc's/Rogue/Death/Death-Sheet.png" id="3_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://b1nkmw0gyw7h4" path="res://assets/Audio/Music/FGJ26Base.wav" id="4_dqkch"]
 [ext_resource type="Script" uid="uid://bm583walnlq6v" path="res://scenes/canvas_layer.gd" id="5_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://clnefh4kgkpti" path="res://assets/Audio/Music/FGJ26Aggro.wav" id="5_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://cvakgviks1mxs" path="res://assets/Audio/Music/FGJ26Calm.wav" id="6_fjrip"]
+[ext_resource type="Script" uid="uid://dkpntrl6h46hg" path="res://scripts/audio_handler.gd" id="7_fjrip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
 atlas = ExtResource("2_qhqgy")
@@ -167,3 +171,20 @@ offset_bottom = -125.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="AudioHandler" type="Node2D" parent="." unique_id=1790787452]
+script = ExtResource("7_fjrip")
+
+[node name="BaseMusic" type="AudioStreamPlayer2D" parent="AudioHandler" unique_id=2015576471]
+stream = ExtResource("4_dqkch")
+bus = &"Music"
+
+[node name="CalmMusic" type="AudioStreamPlayer2D" parent="AudioHandler" unique_id=462590508]
+stream = ExtResource("6_fjrip")
+volume_db = -80.0
+bus = &"Music - faded"
+
+[node name="AggroMusic" type="AudioStreamPlayer2D" parent="AudioHandler" unique_id=942592656]
+stream = ExtResource("5_tuyoq")
+volume_db = -80.0
+bus = &"Music"
