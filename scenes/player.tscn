@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cnridc4g5ml6u"]
+[gd_scene format=3 uid="uid://qtuvolwb21d4"]
 
 [ext_resource type="Script" uid="uid://xly4dr8emeds" path="res://scripts/player.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://btpmigtjuf4tn" path="res://assets/placeholder/Tiles/tile_0097.png" id="1_onrkg"]
@@ -25,12 +25,11 @@ radius = 6.0827627
 script = ExtResource("1_i3pqv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=332943137]
-position = Vector2(1, -8)
+position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_hqtel")
 animation = &"Mask"
 autoplay = "Mask"
 frame_progress = 0.783805
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=831777840]
-position = Vector2(1, -6)
 shape = SubResource("CircleShape2D_sweqy")

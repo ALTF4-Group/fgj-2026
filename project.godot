@@ -13,11 +13,17 @@ config_version=5
 config/name="ALT F4 FGJ 2026"
 run/main_scene="uid://jhafmm0w02if"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/icon.svg"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
 mouse_cursor/custom_image="uid://l0ncohbl6ysq"
+
+[global_group]
+
+enemies=""
 
 [input]
 
@@ -49,6 +55,11 @@ quit={
 
 [layer_names]
 
+2d_render/layer_1="Terrain"
+2d_render/layer_2="Objects"
+2d_render/layer_3="Player"
+2d_render/layer_4="Enemies"
+2d_render/layer_5="Projectiles"
 2d_physics/layer_1="Terrain"
 2d_physics/layer_2="Objects"
 2d_physics/layer_3="Player"
