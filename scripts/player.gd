@@ -16,6 +16,12 @@ var weapon_enabled = true
 func _ready() -> void:
 	Global.player = self
 	add_child(starting_weapon)
+	
+func update_animation():
+	if velocity.length() > 0:
+		$AnimatedSprite2D.play("move")
+	else:
+		$AnimatedSprite2D.play("Mask")
 
 func _physics_process(delta: float) -> void:
 	
@@ -23,10 +29,29 @@ func _physics_process(delta: float) -> void:
 	velocity = input_direction * speed * delta
 	move_and_slide()
 	
+	update_animation()
+	
 	if Input.is_action_just_pressed("ui_select"):
 		remove_child(starting_weapon) if weapon_enabled == true else add_child(starting_weapon)
 		weapon_enabled = !weapon_enabled
 
-
 func look():
 	look_at(get_global_mouse_position())
+
+func die():
+	var timer = Timer.new()
+
+	#Stop movement, remove weapons, play death animation and then fade to black DUNDUNDUUUUN
+	if health <= 0:
+		add_child(timer)
+		timer.wait_time = 10.0
+		timer.start()
+		timer.timeout.connect(on_timer_death_time_out())
+		speed_mult=0
+		$AnimatedSprite2D.play("death")
+		weapon_enabled=false
+		
+
+func on_timer_death_time_out():
+	print("You died!")
+	get_tree().quit()

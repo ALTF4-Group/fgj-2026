@@ -143,9 +143,9 @@ script = ExtResource("1_i3pqv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=332943137]
 sprite_frames = SubResource("SpriteFrames_hqtel")
-animation = &"Mask"
+animation = &"death"
 autoplay = "Mask"
-frame_progress = 0.797512
+frame_progress = 0.4507431
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=831777840]
 shape = SubResource("RectangleShape2D_oprun")
