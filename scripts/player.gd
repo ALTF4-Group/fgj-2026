@@ -9,7 +9,7 @@ extends CharacterBody2D
 @export var attack_range = 1
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
-@export var weapons = {
+@export var weapons = { 
 	"cleave" : preload("res://scenes/items/weapons/cleave.tscn"),
 	"boomerang" : preload("res://scenes/items/weapons/boomerang.tscn"),
   "crossbow" : preload("res://scenes/items/weapons/Cross_cross_bow.tscn")
