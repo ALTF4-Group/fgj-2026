@@ -1,7 +1,4 @@
 extends Node2D
-
-var score
-
 func _ready() -> void:
 	pass # Replace with function body.
 

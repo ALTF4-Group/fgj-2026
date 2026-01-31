@@ -6,7 +6,6 @@ extends CharacterBody2D
 var speed = 500
 
 func _ready() -> void:
-	add_to_group("enemies")
 	Global.enemy_counter += 1
 	pass
 
