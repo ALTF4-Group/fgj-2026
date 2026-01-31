@@ -11,12 +11,9 @@ var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
 @export var weapons = { 
 	"cleave" : preload("res://scenes/items/weapons/cleave.tscn"),
-	"boomerang" : preload("res://scenes/items/weapons/boomerang.tscn")
+	"boomerang" : preload("res://scenes/items/weapons/boomerang.tscn"),
+  "crossbow" : preload("res://scenes/items/weapons/Cross_cross_bow.tscn")
 	}
-
-var current_weapon = weapons["cleave"].instantiate()
-
-var weapon_select = 0
 
 func _ready() -> void:
 	Global.player = self

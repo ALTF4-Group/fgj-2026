@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d2isai3o3ge24"]
+
+[ext_resource type="Script" uid="uid://t131mxoldxw0" path="res://scenes/items/weapons/crossbow.gd" id="1_ptg2n"]
+[ext_resource type="Texture2D" uid="uid://tt5mvavk0w27" path="res://assets/placeholder/Tiles/tile_0095.png" id="1_vj5wx"]
+
+[node name="Crossbow" type="Node2D" unique_id=1333650343]
+script = ExtResource("1_ptg2n")
+
+[node name="Bow" type="Sprite2D" parent="." unique_id=1425595332]
+position = Vector2(-20, -20)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_vj5wx")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1058978348]
+position = Vector2(-24, -24)
