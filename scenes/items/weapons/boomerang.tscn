@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cakw121c36ei1"]
+
+[ext_resource type="Script" uid="uid://cx84gbu6j7frl" path="res://scenes/items/weapons/boomerang.gd" id="1_84fw7"]
+[ext_resource type="Texture2D" uid="uid://bxrcr6upopmfa" path="res://assets/placeholder/Tiles/tile_0119.png" id="1_eq50n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_84fw7"]
+radius = 4.0
+
+[node name="Boomerang" type="Area2D" unique_id=1502816023]
+script = ExtResource("1_84fw7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1249966997]
+texture = ExtResource("1_eq50n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=718471062]
+position = Vector2(-4, -2)
+shape = SubResource("CircleShape2D_84fw7")
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
