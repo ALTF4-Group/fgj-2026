@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://jl4tvlnwsvur"]
+
+[ext_resource type="PackedScene" uid="uid://bwaifjcop8yut" path="res://scenes/ui/PowerupSelector.tscn" id="1_ivdol"]
+[ext_resource type="Script" uid="uid://hxne45ecjimc" path="res://scenes/ui/player_hud.gd" id="1_rq211"]
+
+[node name="PlayerHud" type="CanvasLayer" unique_id=2030170642]
+script = ExtResource("1_rq211")
+
+[node name="PowerupSelector" parent="." unique_id=1865159635 instance=ExtResource("1_ivdol")]

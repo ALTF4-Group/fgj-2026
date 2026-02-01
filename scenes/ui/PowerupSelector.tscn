@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bwaifjcop8yut"]
+
+[ext_resource type="Script" uid="uid://tromydcom3yp" path="res://scenes/ui/powerup_selector.gd" id="1_dd1r2"]
+
+[node name="PowerupSelector" type="VBoxContainer" unique_id=1584258832]
+process_mode = 2
+script = ExtResource("1_dd1r2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=2083023738]
+layout_mode = 2
+text = "Select your item!"
