@@ -7,7 +7,7 @@ func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	var player_pos = Global.player.global_position
+	#var player_pos = Global.player.global_position
 	$".".rotate(rotation_speed * delta)
 
 func _on_body_entered(body: Node2D) -> void:

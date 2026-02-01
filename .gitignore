@@ -7,3 +7,4 @@
 *.translation
 *.tmp
 builds/
+*.wav
