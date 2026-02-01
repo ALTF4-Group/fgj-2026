@@ -10,7 +10,6 @@ func _ready() -> void:
 func apply(target: Node2D) -> void:
 	if target.name == "Player":
 		target.health += 1
-		print(target.health)
 
 func get_item_name() -> String:
-	return "HEALTHPOTION"
+	return "HEALTH POTION"
