@@ -14,7 +14,7 @@ var direction : Vector2 = Vector2.ZERO
 	"cleave" : preload("res://scenes/items/weapons/cleave.tscn"),
 	"boomerang" : preload("res://scenes/items/weapons/boomerang.tscn"),
 	"crossbow" : preload("res://scenes/items/weapons/Cross_cross_bow.tscn"),
-	"hammer" : preload("res://scenes/items/weapons/hamme_of_justice.tscn")
+	"hammer" : preload("res://scenes/items/weapons/HammerSpawner.tscn")
 	}
 var starting_weapon = weapons["cleave"].instantiate()
 var weapon_enabled = true
@@ -23,11 +23,6 @@ func _ready() -> void:
 	Global.player = self
 	add_child(starting_weapon)
 	$"Mob Timer".start()
-	var timer = Timer.new()
-	add_child(timer)
-	timer.wait_time = 3.0
-	timer.start()
-	timer.timeout.connect(_on_timer_timeout)
 	
 func update_animation():
 	#Flip the sprite when changing direction
@@ -52,10 +47,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_select"):
 		remove_child(starting_weapon) if weapon_enabled == true else add_child(starting_weapon)
 		weapon_enabled = !weapon_enabled
-	
-func _on_timer_timeout() -> void:
-	var hammer = weapons["hammer"].instantiate()
-	add_child(hammer)
 
 func look():
 	look_at(get_global_mouse_position())
