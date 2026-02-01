@@ -13,7 +13,8 @@ var direction : Vector2 = Vector2.ZERO
 @export var weapons = { 
 	"cleave" : preload("res://scenes/items/weapons/cleave.tscn"),
 	"boomerang" : preload("res://scenes/items/weapons/boomerang.tscn"),
-  "crossbow" : preload("res://scenes/items/weapons/Cross_cross_bow.tscn")
+	"crossbow" : preload("res://scenes/items/weapons/Cross_cross_bow.tscn"),
+	"hammer" : preload("res://scenes/items/weapons/hamme_of_justice.tscn")
 	}
 var starting_weapon = weapons["cleave"].instantiate()
 var weapon_enabled = true
@@ -24,7 +25,7 @@ func _ready() -> void:
 	$"Mob Timer".start()
 	var timer = Timer.new()
 	add_child(timer)
-	timer.wait_time = 1.0
+	timer.wait_time = 3.0
 	timer.start()
 	timer.timeout.connect(_on_timer_timeout)
 	
@@ -53,8 +54,8 @@ func _physics_process(delta: float) -> void:
 		weapon_enabled = !weapon_enabled
 	
 func _on_timer_timeout() -> void:
-	var second_weapon = weapons["boomerang"].instantiate()
-	add_sibling(second_weapon)
+	var hammer = weapons["hammer"].instantiate()
+	add_child(hammer)
 
 func look():
 	look_at(get_global_mouse_position())
