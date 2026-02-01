@@ -1,10 +1,16 @@
 extends Area2D
+class_name TestItem
+
 @export var health_increase := 1
 
 func _ready() -> void:
 	pass
 	
-func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
-		body.health += 1
-		print(body.health)
+	
+func apply(target: Node2D) -> void:
+	if target.name == "Player":
+		target.health += 1
+		print(target.health)
+
+func get_item_name() -> String:
+	return "HEALTHPOTION"
