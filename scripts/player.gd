@@ -78,6 +78,9 @@ func die():
 func on_timer_death_time_out():
 	print("You died!")
 	get_tree().quit()
+	
+func on_kill(xp_amount: int):
+	$ExperienceHandler.gain_xp(xp_amount)
 
 
 func _on_mob_timer_timeout() -> void:
