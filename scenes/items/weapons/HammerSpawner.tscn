@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://fp813tira6n2"]
+
+[ext_resource type="Script" uid="uid://cfpicb8flwfwn" path="res://scenes/items/weapons/hammer_spawner.gd" id="1_yrvuy"]
+
+[node name="HammerSpawner" type="Node2D" unique_id=2054208564]
+script = ExtResource("1_yrvuy")
